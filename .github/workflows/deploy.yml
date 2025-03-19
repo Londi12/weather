@@ -17,8 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NODE_ENV: production
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,16 +25,12 @@ jobs:
         with:
           node-version: "18"
           cache: 'npm'
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
       - name: Install dependencies
         run: npm ci
-      - name: Build
+      - name: Build with Next.js
         run: npm run build
-        env:
-          NODE_ENV: production
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
 
