@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ForecastData } from '@/lib/types';
 import { groupForecastByDay } from '@/lib/weatherApi';
 import { getWeatherIcon } from '@/lib/weatherIcons';
@@ -24,12 +25,13 @@ export default function ForecastCards({ forecastData }: ForecastCardsProps) {
           <h3 className="font-bold text-lg text-secondary-800 mt-4">{day.date}</h3>
           
           <div className="my-3 w-20 h-20">
-            <img 
+            <Image 
               src={getWeatherIcon(day.icon)} 
               alt={day.description}
               width={80}
               height={80}
               className="w-full h-full object-contain"
+              unoptimized
             />
           </div>
           

@@ -41,12 +41,13 @@ export default function CurrentWeather({ weatherData }: CurrentWeatherProps) {
           </p>
           
           <div className="flex items-center">
-            <img 
+            <Image 
               src={getWeatherIcon(iconCode)} 
               alt={weather[0].description}
               width={100}
               height={100}
               className="w-24 h-24 object-contain"
+              unoptimized // Need this for external SVG icons
             />
             <div className="ml-4">
               <div className="flex items-start">

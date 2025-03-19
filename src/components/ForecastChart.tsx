@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,6 +10,8 @@ import {
   Tooltip,
   Legend,
   Filler,
+  ChartOptions,
+  ChartData,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { ForecastData } from '@/lib/types';
@@ -40,7 +41,7 @@ export default function ForecastChart({ forecastData }: ForecastChartProps) {
   const maxTemps = dailyData.map((day) => day.maxTemp);
   const minTemps = dailyData.map((day) => day.minTemp);
 
-  const chartData = {
+  const chartData: ChartData<'line'> = {
     labels,
     datasets: [
       {
@@ -74,7 +75,7 @@ export default function ForecastChart({ forecastData }: ForecastChartProps) {
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -136,7 +137,6 @@ export default function ForecastChart({ forecastData }: ForecastChartProps) {
         },
         grid: {
           color: 'rgba(226, 232, 240, 0.5)',
-          borderDash: [5, 5],
         },
         ticks: {
           font: {
@@ -148,7 +148,6 @@ export default function ForecastChart({ forecastData }: ForecastChartProps) {
       x: {
         grid: {
           color: 'rgba(226, 232, 240, 0.5)',
-          borderDash: [5, 5],
         },
         ticks: {
           font: {

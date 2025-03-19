@@ -42,6 +42,8 @@ export default function Home() {
     }
   };
 
+  // This function can be used to fetch weather based on user's location
+  // Uncomment the useEffect below to use geolocation on initial load
   const fetchWeatherByLocation = async () => {
     // Only attempt to use geolocation if we're in the browser
     if (typeof window === 'undefined' || !window.navigator?.geolocation) {
@@ -82,9 +84,12 @@ export default function Home() {
     }
   };
 
-  // Use useEffect to fetch weather for default location instead of using geolocation
+  // Use useEffect to fetch weather for default location 
   useEffect(() => {
     fetchWeatherData(DEFAULT_LOCATION);
+    
+    // Uncomment to use geolocation instead of default location
+    // fetchWeatherByLocation();
   }, []);
 
   return (

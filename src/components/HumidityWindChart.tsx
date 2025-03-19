@@ -8,6 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
+  ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { ForecastData } from '@/lib/types';
@@ -35,7 +37,7 @@ export default function HumidityWindChart({ forecastData }: HumidityWindChartPro
   const humidityValues = dailyData.map((day) => day.hourly[0].main.humidity);
   const windValues = dailyData.map((day) => day.hourly[0].wind.speed);
 
-  const data = {
+  const data: ChartData<'bar'> = {
     labels,
     datasets: [
       {
@@ -59,7 +61,7 @@ export default function HumidityWindChart({ forecastData }: HumidityWindChartPro
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -95,7 +97,7 @@ export default function HumidityWindChart({ forecastData }: HumidityWindChartPro
         },
         titleFont: {
           size: 16,
-          weight: 'bold',
+          weight: 'bold' as const,
         },
         padding: 12,
         borderColor: 'rgba(226, 232, 240, 1)',
@@ -115,7 +117,6 @@ export default function HumidityWindChart({ forecastData }: HumidityWindChartPro
         beginAtZero: true,
         grid: {
           color: 'rgba(226, 232, 240, 0.5)',
-          borderDash: [5, 5],
         },
         ticks: {
           font: {
@@ -131,7 +132,7 @@ export default function HumidityWindChart({ forecastData }: HumidityWindChartPro
         ticks: {
           font: {
             size: 12,
-            weight: 'bold',
+            weight: 'bold' as const,
           },
           padding: 8,
         },
@@ -148,9 +149,7 @@ export default function HumidityWindChart({ forecastData }: HumidityWindChartPro
     interaction: {
       mode: 'index' as const,
       intersect: false,
-    },
-    barPercentage: 0.7,
-    categoryPercentage: 0.7,
+    }
   };
 
   return (
