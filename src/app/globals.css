@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br from-primary-50 to-secondary-100 min-h-screen;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-lg p-6 backdrop-blur-sm bg-white/80 border border-white/20 hover:shadow-xl transition-shadow duration-300;
+}
+
+.weather-card {
+  @apply bg-gradient-to-br from-white/90 to-white/70 rounded-xl shadow-lg p-6 backdrop-blur-sm border border-white/30;
+}
+
+.forecast-card {
+  @apply bg-white/90 rounded-xl shadow-md p-4 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:shadow-lg hover:scale-[1.02];
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium focus:outline-none transition-all duration-300 shadow-sm;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-white hover:bg-primary-600 shadow-primary-500/20 hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-secondary-100 text-secondary-800 hover:bg-secondary-200 hover:shadow-md;
+}
+
+.search-input {
+  @apply px-4 py-3 rounded-xl border border-secondary-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent shadow-inner bg-white/90 text-secondary-800;
+}
+
+.loading-spinner {
+  @apply animate-spin rounded-full border-t-4 border-primary-500 border-opacity-50 h-12 w-12 border-b-4;
+} 
